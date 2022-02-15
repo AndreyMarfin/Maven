@@ -1,7 +1,8 @@
 package pro.learnup.homework;
 
 public class GameLogic {
-    public static boolean isGreenLight = true;
+    public static boolean isGreenLight = false;
+    public static int maxSpeed = 2;
 
     public static int numbersOfDropOuts(int[] speedOfPlayers) {
         int response = 0;
@@ -9,7 +10,7 @@ public class GameLogic {
             response = 0;
         } else {
             for (int speedOfPlayer : speedOfPlayers) {
-                if (speedOfPlayer > 0) {
+                if (speedOfPlayer > maxSpeed) {
                     response++;
                 }
             }
@@ -26,7 +27,7 @@ public class GameLogic {
             if (isGreenLight) {
                 continue;
             } else {
-                if (speedOfPlayer > 0) {
+                if (speedOfPlayer > maxSpeed) {
                     response[i] = speedOfPlayer;
                     i++;
                 }
@@ -44,11 +45,13 @@ public class GameLogic {
                     cnt++;
                 }
             } else {
-                if (speedOfPlayer > 0) {
+                if (speedOfPlayer > maxSpeed) {
                     continue;
                 } else {
-                    if (speedOfPlayer == 0) {
-                        cnt++;
+                    if (speedOfPlayer <= maxSpeed) {
+                        if (speedOfPlayer >= 0) {
+                            cnt++;
+                        }
                     }
                 }
             }
@@ -63,12 +66,14 @@ public class GameLogic {
                     i++;
                 }
             } else {
-                if (speedOfPlayer > 0) {
+                if (speedOfPlayer > maxSpeed) {
                     continue;
                 } else {
-                    if (speedOfPlayer == 0) {
-                        response[i] = 0;
-                        i++;
+                    if (speedOfPlayer >= 0) {
+                        if (speedOfPlayer <= maxSpeed) {
+                            response[i] = speedOfPlayer;
+                            i++;
+                        }
                     }
                 }
             }

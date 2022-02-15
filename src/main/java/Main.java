@@ -5,7 +5,7 @@ import static pro.learnup.homework.GameLogic.*;
 public class Main {
     public static void main(String[] args) {
 
-        int[] speedOfPlayers = {1, 0, 1, 0, 2};
+        int[] speedOfPlayers = {1, 0, 1, 0, 3};
 
         int result1 = numbersOfDropOuts(speedOfPlayers);   // <- сколько игроков выбывает?
         System.out.println("Выбывает игроков : " + result1);
